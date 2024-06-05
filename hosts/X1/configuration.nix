@@ -28,51 +28,30 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Asia/Seoul";
+  myNixOS = {
+    bundles.general-desktop.enable = true;
+    bundles.users.enable = true;
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "ko_KR.UTF-8";
-    LC_IDENTIFICATION = "ko_KR.UTF-8";
-    LC_MEASUREMENT = "ko_KR.UTF-8";
-    LC_MONETARY = "ko_KR.UTF-8";
-    LC_NAME = "ko_KR.UTF-8";
-    LC_NUMERIC = "ko_KR.UTF-8";
-    LC_PAPER = "ko_KR.UTF-8";
-    LC_TELEPHONE = "ko_KR.UTF-8";
-    LC_TIME = "ko_KR.UTF-8";
+    sharedSettings.hyprland.enable = true;
+    home-users = {
+      "ake" = {
+        userConfig = ./home.nix;
+        userSettings = {
+          extraGroups = ["docker" "libvirtd" "networkmanager" "wheel"];
+        };
+      };
+    };
+    # cachix.enable = true;
   };
+  system.name = "X1";
+  system.nixos.label = "X1";
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "kr";
     variant = "";
   };
-
-  programs.zsh.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ake = {
-    isNormalUser = true;
-    description = "ake";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-    ];
-  };
-
-  home-manager = {
-    extraSpecialArgs  = { inherit inputs; };
-    users = {
-      "ake" = import ./home.nix;
-    };
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -82,6 +61,13 @@
      neovim
      git
   ];
+  
+  programs.zsh.enable = true;
+  programs.hyprland.enable = true;
+
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal.enable = true;
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

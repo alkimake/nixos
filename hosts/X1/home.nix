@@ -1,6 +1,19 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
+  myHomeManager.impermanence.directories = [
+      ".local/share/PrismLauncher"
+  ];
+  myHomeManager = {
+    bundles.general.enable = true;
+    bundles.desktop.enable = true;
+
+    # firefox.enable = true;
+    hyprland.enable = true;
+
+  };
+
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "ake";
@@ -21,6 +34,8 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.prismlauncher
+
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -76,4 +91,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+
 }

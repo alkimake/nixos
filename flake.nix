@@ -8,7 +8,18 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
 
+    prism = {
+      url = "github:IogaMaster/prism";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
+    nix-colors.url = "github:misterio77/nix-colors";
 
     hyprland.url = "github:hyprwm/Hyprland";
 
@@ -28,8 +39,9 @@
       homeConfigurations = {
         "ake@X1" = mkHome "x86_64-linux" ./hosts/X1/home.nix;
       };
-
-      nixosModules.default = ./nixosModules;
+     
+     homeManagerModules.default = ./homeManagerModules;
+     nixosModules.default = ./nixosModules;
 
     };
 }
