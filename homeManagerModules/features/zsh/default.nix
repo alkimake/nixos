@@ -22,14 +22,25 @@ in {
     dotDir = ".config/zsh";
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza --icons -a --group-directories-first";
+      l = "${pkgs.eza}/bin/eza -lbF --git --group-directories-first --icons";
+      ll = "${pkgs.eza}/bin/eza -lbGF --git --group-directories-first --icons";
+      llm =
+        "${pkgs.eza}/bin/eza -lbGd --git --sort=modified --group-directories-first --icons";
+      la =
+        "${pkgs.eza}/bin/eza -lbhHigmuSa --time-style=long-iso --git --color-scale --group-directories-first --icons";
+      lx =
+        "${pkgs.eza}/bin/eza -lbhHigmuSa@ --time-style=long-iso --git --color-scale --group-directories-first --icons";
+      lt =
+        "${pkgs.eza}/bin/eza --tree --level=2 --group-directories-first --icons";
       tree = "${pkgs.eza}/bin/eza --color=auto --tree";
       cal = "cal -m";
       grep = "grep --color=auto";
       q = "exit";
       ":q" = "exit";
+      weather = "${pkgs.curl}/bin/curl -4 http://wttr.in/Seoul";
+
     };
   };
-
   programs.zsh.initExtra = ''
     # EXTRACT FUNCTION (needs more nix)
 
@@ -42,8 +53,8 @@ in {
 
   programs.zsh.envExtra = ''
     export EDITOR="nvim"
-    export TERMINAL="alacritty"
-    export TERM="alacritty"
+    export TERMINAL="kitty"
+    export TERM="kitty"
     export BROWSER="firefox"
     export VIDEO="mpv"
     export IMAGE="imv"
