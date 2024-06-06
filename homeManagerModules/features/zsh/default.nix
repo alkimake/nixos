@@ -77,6 +77,34 @@ in {
     export DIRENV_LOG_FORMAT=""
   '';
 
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    defaultOptions = [
+      "--height 40%"
+      "--layout=reverse"
+      "--border"
+      "--inline-info"
+      "--color 'fg:#${config.colorScheme.colors.base05}'" # Text
+      "--color 'bg:#${config.colorScheme.colors.base00}'" # Background
+      "--color 'preview-fg:#${config.colorScheme.colors.base05}'" # Preview window text
+      "--color 'preview-bg:#${config.colorScheme.colors.base02}'" # Preview window background
+      "--color 'hl:#${config.colorScheme.colors.base0A}'" # Highlighted substrings
+      "--color 'fg+:#${config.colorScheme.colors.base0D}'" # Text (current line)
+      "--color 'bg+:#${config.colorScheme.colors.base02}'" # Background (current line)
+      "--color 'gutter:#${config.colorScheme.colors.base02}'" # Gutter on the left (defaults to bg+)
+      "--color 'hl+:#${config.colorScheme.colors.base0E}'" # Highlighted substrings (current line)
+      "--color 'info:#${config.colorScheme.colors.base0E}'" # Info line (match counters)
+      "--color 'border:#${config.colorScheme.colors.base0D}'" # Border around the window (--border and --preview)
+      "--color 'prompt:#${config.colorScheme.colors.base05}'" # Prompt
+      "--color 'pointer:#${config.colorScheme.colors.base0E}'" # Pointer to the current line
+      "--color 'marker:#${config.colorScheme.colors.base0E}'" # Multi-select marker
+      "--color 'spinner:#${config.colorScheme.colors.base0E}'" # Streaming input indicator
+      "--color 'header:#${config.colorScheme.colors.base05}'" # Header
+    ];
+  };
+
   home.packages = [
     pimg
 
