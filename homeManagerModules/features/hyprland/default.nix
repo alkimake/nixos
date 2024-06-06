@@ -19,7 +19,7 @@
      # wait a tiny bit for wallpaper
      sleep 2
 
-    ${pkgs.swww}/bin/swww img ${./../prism/wallpapers/gruvbox-mountain-village.png} &
+    ${pkgs.swww}/bin/swww img ${./../prism/wallpapers/tokyo-night-bright.jpg} &
 
     ${config.myHomeManager.startupScript}
   '';
