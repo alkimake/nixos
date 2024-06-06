@@ -51,6 +51,8 @@
     tree-sitter
 
     nh
+    nix-output-monitor
+    nvd
   ];
 
   home.sessionVariables = {
