@@ -11,6 +11,18 @@
     # firefox.enable = true;
     hyprland.enable = true;
 
+    monitors = [
+      {
+        name = "eDP-1";
+        width = 2560;
+        height = 1440;
+        refreshRate = 59.99800;
+        x = 0;
+        y = 0;
+      }
+    ];
+
+
   };
 
 
