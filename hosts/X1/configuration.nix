@@ -17,7 +17,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."luks-a8b20255-8ea4-40e4-8cd1-d57b2d8476e9".device = "/dev/disk/by-uuid/a8b20255-8ea4-40e4-8cd1-d57b2d8476e9";
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "X1"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
