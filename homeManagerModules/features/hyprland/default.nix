@@ -25,6 +25,7 @@
   '';
 in {
   imports = [
+     ./monitors.nix
   ];
 
   options = {
@@ -54,6 +55,27 @@ in {
           layout = "master";
         };
 
+	monitor =
+          map
+          (
+            m: let
+              resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+              position = "${toString m.x}x${toString m.y}";
+            in "${m.name},${
+              if m.enabled
+              then "${resolution},${position},1"
+              else "disable"
+            }"
+          )
+          (config.myHomeManager.monitors);
+
+        workspace =
+          map
+          (
+            m: "${m.name},${m.workspace}"
+          )
+          (lib.filter (m: m.enabled && m.workspace != null) config.myHomeManager.monitors);
+
         env = [
           "XCURSOR_SIZE,24"
           # "GDK_BACKEND,wayland,x11"
@@ -82,7 +104,7 @@ in {
         ];
 
         input = {
-          kb_layout = "us,ru,ua";
+          kb_layout = "us,kr,jp";
           kb_variant = "";
           kb_model = "";
           kb_options = "grp:alt_shift_toggle,caps:escape";
