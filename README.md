@@ -3,4 +3,4 @@
 ## TODO:
 
 - [ ] Remove Prism (i don't like it)
-- [ ] Add stylix
+- [ ] Add TokyoNight theme to bat
