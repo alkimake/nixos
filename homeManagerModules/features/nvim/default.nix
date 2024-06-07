@@ -1,19 +1,19 @@
-{pkgs, ...}: {
-  programs.neovim = 
-  let
-    toLua = str: "lua << EOF\n${str}\nEOF\n";
-    toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-  in
-  {
+{pkgs, inputs, ...}: {
+   imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+    ./options.nix
+  ];
+
+ programs.nixvim = {
     enable = true;
+    defaultEditor = true;
 
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    luaLoader.enable = true;
 
     extraPackages = with pkgs; [
-      lua-language-server
-
       wl-clipboard
     ];
   };
