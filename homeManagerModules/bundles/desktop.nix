@@ -21,7 +21,7 @@
     myHomeManager.kitty.enable = lib.mkDefault true;
 
     myHomeManager.gtk.enable = lib.mkDefault true;
-
+    
     qt.enable = true;
     qt.platformTheme = "gtk";
     qt.style.name = "adwaita-dark";

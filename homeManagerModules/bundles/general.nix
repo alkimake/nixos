@@ -18,6 +18,7 @@
 
   myHomeManager.zsh.enable = lib.mkDefault true;
   myHomeManager.lf.enable = lib.mkDefault true;
+  myHomeManager.nvim.enable = lib.mkDefault true;
 
   programs.home-manager.enable = true;
 
@@ -33,7 +34,6 @@
     libqalculate
     imagemagick
     killall
-    neovim
 
     fzf
     htop
