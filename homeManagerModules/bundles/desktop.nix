@@ -39,6 +39,8 @@
       "video/*" = ["mpv.desktop"];
     };
 
+    catppuccin.flavor = "mocha";
+
     programs.imv = {
       enable = true;
       settings = {

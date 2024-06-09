@@ -37,6 +37,7 @@
 in {
   imports =
     [
+      inputs.catppuccin.nixosModules.catppuccin
       inputs.home-manager.nixosModules.home-manager
     ]
     ++ features
