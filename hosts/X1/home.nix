@@ -101,6 +101,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-dark;
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
 }
