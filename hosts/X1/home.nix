@@ -2,7 +2,6 @@
 
 {
   myHomeManager.impermanence.directories = [
-      ".local/share/PrismLauncher"
   ];
   myHomeManager = {
     bundles.general.enable = true;
@@ -46,7 +45,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    pkgs.prismlauncher
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
