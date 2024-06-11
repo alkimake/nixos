@@ -46,6 +46,7 @@ in {
   options.myNixOS = {
     sharedSettings = {
       hyprland.enable = lib.mkEnableOption "enable hyprland";
+      catppuccin.enable = lib.mkEnableOption "enable catppuccin";
     };
   };
 

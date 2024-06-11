@@ -34,6 +34,7 @@
     bundles.users.enable = true;
 
     sharedSettings.hyprland.enable = true;
+    sharedSettings.catppuccin.enable = true;
     home-users = {
       "ake" = {
         userConfig = ./home.nix;

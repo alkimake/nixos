@@ -36,6 +36,7 @@ in {
     programs.zsh.enable = true;
 
     programs.hyprland.enable = cfg.sharedSettings.hyprland.enable;
+    catppuccin.enable = cfg.sharedSettings.catppuccin.enable;
 
     services.xserver = lib.mkIf cfg.sharedSettings.hyprland.enable {
       displayManager = {
