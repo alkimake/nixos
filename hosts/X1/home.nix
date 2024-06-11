@@ -7,7 +7,7 @@
     bundles.general.enable = true;
     bundles.desktop.enable = true;
 
-    # firefox.enable = true;
+    firefox.enable = true;
     hyprland.enable = true;
 
     monitors = [
