@@ -63,7 +63,7 @@ in {
               position = "${toString m.x}x${toString m.y}";
             in "${m.name},${
               if m.enabled
-              then "${resolution},${position},1"
+              then "${resolution},${position},auto"
               else "disable"
             }"
           )
