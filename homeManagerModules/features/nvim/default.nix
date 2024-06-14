@@ -13,6 +13,18 @@
     vimdiffAlias = true;
     luaLoader.enable = true;
 
+    colorschemes.catppuccin = {
+      enable = true;
+      flavour = "mocha";
+      integrations = {
+        cmp = true;
+        gitsigns = true;
+        notify = false;
+        nvimtree = true;
+        treesitter = true;
+      };
+    };
+
     extraPackages = with pkgs; [
       wl-clipboard
     ];
