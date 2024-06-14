@@ -17,14 +17,16 @@
 
     colorschemes.catppuccin = {
       enable = true;
-      flavour = "mocha";
-      integrations = {
-        cmp = true;
-        gitsigns = true;
-        notify = false;
-        neotree = true;
-        treesitter = true;
-        which_key = true;
+      settings = {
+        flavour = "mocha";
+        integrations = {
+          cmp = true;
+          gitsigns = true;
+          notify = false;
+          neotree = true;
+          treesitter = true;
+          which_key = true;
+        };
       };
     };
 

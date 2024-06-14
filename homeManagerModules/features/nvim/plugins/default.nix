@@ -32,7 +32,9 @@ lib.mkMerge (
         programs.nixvim.extraConfigLua = plugin.extra.config or "";
         programs.nixvim.extraPlugins = plugin.extra.packages;
       })
-      (plugin.rootOpts or { })
+      (lib.optionalAttrs (plugin ? rootOpts) { 
+        programs.nixvim = plugin.rootOpts or { };
+      })
     ]
     )
     definitions
