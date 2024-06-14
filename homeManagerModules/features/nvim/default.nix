@@ -24,12 +24,18 @@
         notify = false;
         neotree = true;
         treesitter = true;
+        which_key = true;
       };
     };
 
     extraPackages = with pkgs; [
       wl-clipboard
     ];
+
+    autoGroups = {
+      neotree = { };
+    };
+
     autoCmd =
       let
         refresh = ''
