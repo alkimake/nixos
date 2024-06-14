@@ -22,7 +22,11 @@
         integrations = {
           cmp = true;
           gitsigns = true;
-          notify = false;
+          notify = true;
+          native_lsp = {
+            enable = true;
+            background = true;
+          };
           neotree = true;
           treesitter = true;
           which_key = true;
@@ -32,6 +36,9 @@
 
     extraPackages = with pkgs; [
       wl-clipboard
+
+      # LSP requirements
+      go
     ];
   };
 }
