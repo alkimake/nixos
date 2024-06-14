@@ -1,4 +1,6 @@
-{
+{ ... }: let
+  icons = (import ./../utils/icons.nix);
+in {
   programs.nixvim.plugins.neo-tree = {
     enable = true;
 
@@ -141,17 +143,17 @@
     };
 
     defaultComponentConfigs = {
-    #   gitStatus.symbols = {
-    #     added = icons.GitAdd;
-    #     conflict = icons.GitConflict;
-    #     deleted = icons.GitDelete;
-    #     ignored = icons.GitIgnored;
-    #     modified = icons.GitChange;
-    #     renamed = icons.GitRenamed;
-    #     staged = icons.GitStaged;
-    #     unstaged = icons.GitUnstaged;
-    #     untracked = icons.GitUntracked;
-    #   };
+      gitStatus.symbols = {
+        added = icons.GitAdd;
+        conflict = icons.GitConflict;
+        deleted = icons.GitDelete;
+        ignored = icons.GitIgnored;
+        modified = icons.GitChange;
+        renamed = icons.GitRenamed;
+        staged = icons.GitStaged;
+        unstaged = icons.GitUnstaged;
+        untracked = icons.GitUntracked;
+      };
     };
 
     filesystem = {
@@ -174,20 +176,20 @@
       winbar = true;
 
       # Sources to show and their labels
-      # sources = [
-      #   {
-      #     displayName = "${icons.FolderClosed} Files";
-      #     source = "filesystem";
-      #   }
-      #   {
-      #     displayName = "${icons.DefaultFile} Bufs";
-      #     source = "buffers";
-      #   }
-      #   {
-      #     displayName = "${icons.Git} Git";
-      #     source = "git_status";
-      #   }
-      # ];
+      sources = [
+        {
+          displayName = "${icons.FolderClosed} Files";
+          source = "filesystem";
+        }
+        {
+          displayName = "${icons.DefaultFile} Bufs";
+          source = "buffers";
+        }
+        {
+          displayName = "${icons.Git} Git";
+          source = "git_status";
+        }
+      ];
     };
   };
 }
