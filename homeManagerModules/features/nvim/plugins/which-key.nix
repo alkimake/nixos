@@ -3,7 +3,7 @@
 { ... }: let
   icons = (import ./../utils/icons.nix);
 in {
-  programs.nixvim.plugins.which-key = {
+  opts = {
     enable = true;
     icons.group = "";
     window.border = "single";

@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  programs.nixvim.plugins.treesitter = {
+  opts = {
     # Enable treesitter syntax highlighting
     enable = true;
 

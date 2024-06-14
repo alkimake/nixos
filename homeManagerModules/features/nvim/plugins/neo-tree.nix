@@ -1,7 +1,7 @@
 { ... }: let
   icons = (import ./../utils/icons.nix);
 in {
-  programs.nixvim.plugins.neo-tree = {
+  opts = {
     enable = true;
 
     # Automatically clean up broken neo-tree buffers saved in sessions
