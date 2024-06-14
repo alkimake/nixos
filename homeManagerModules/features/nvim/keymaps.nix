@@ -6,12 +6,6 @@
       # Default mode is "" which means normal-visual-op
       {
         mode = "n";
-        key = "<leader>e";
-        action = "<cmd>Neotree toggle<cr>";
-        options.desc = "Toggle explorer";
-      }
-      {
-        mode = "n";
         key = "<leader>o";
         options.desc = "Toggle explorer focus";
 
