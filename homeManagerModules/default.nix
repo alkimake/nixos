@@ -35,7 +35,6 @@
 in {
   imports =
     [
-      inputs.catppuccin.homeManagerModules.catppuccin
     ]
     ++ features
     ++ bundles;
