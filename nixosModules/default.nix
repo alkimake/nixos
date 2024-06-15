@@ -19,7 +19,8 @@
 
       configExtension = config: (lib.mkIf cfg.${name}.enable config);
     })
-    (myLib.filesIn ./features);
+    (myLib.filesIn ./features)
+    {};
 
 
   # Taking all module bundles in ./bundles and adding bundle.enables to them
@@ -32,7 +33,8 @@
 
       configExtension = config: (lib.mkIf cfg.bundles.${name}.enable config);
     })
-    (myLib.filesIn ./bundles);
+    (myLib.filesIn ./bundles)
+    {};
 
 in {
   imports =

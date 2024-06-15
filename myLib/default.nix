@@ -49,11 +49,11 @@ in rec {
   # ========================== Extenders =========================== #
 
   # Evaluates nixos/home-manager module and extends it's options / config
-  extendModule = {path, ...} @ args: {pkgs, ...} @ margs: let
+  extendModule = {path, customInputs ? {}, ...} @ args: {pkgs, ...} @ margs: let
     eval =
       if (builtins.isString path) || (builtins.isPath path)
-      then import path margs
-      else path margs;
+      then import path (margs // customInputs)
+      else path (margs // customInputs);
     evalNoImports = builtins.removeAttrs eval ["imports" "options"];
 
     extra =
@@ -84,11 +84,11 @@ in rec {
   # Applies extendModules to all modules
   # modules can be defined in the same way
   # as regular imports, or taken from "filesIn"
-  extendModules = extension: modules:
+  extendModules = extension: modules: customInputs:
     map
     (f: let
       name = fileNameOf f;
-    in (extendModule ((extension name) // {path = f;})))
+    in (extendModule ((extension name) // {path = f; customInputs = customInputs;})))
     modules;
 
   # ============================ Shell ============================= #

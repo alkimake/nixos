@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }@args:
+{ lib, pkgs, helpers, ... }@args:
 
 let
   # Flag to enable LSP plugin with servers
