@@ -1,4 +1,4 @@
-{pkgs, helpers, ...}: {
+{pkgs, ...}: {
    imports = [
     ./keymaps.nix
     ./options.nix

@@ -6,9 +6,9 @@
   ...
 }: {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
     inputs.nix-colors.homeManagerModules.default
     inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   nixpkgs = {
