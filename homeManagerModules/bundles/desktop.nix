@@ -4,8 +4,15 @@
   inputs,
   lib,
   ...
-}: {
-
+}: let
+  nixvim' = inputs.nixvim.packages."x86_64-linux".default;
+  nvim = nixvim'.nixvimExtend {
+    config.colorschemes.catppuccin = lib.mkForce {
+      enable = true;
+      flavour = "mocha";
+    };
+  };
+in {
   options = {
     myHomeManager.startupScript = lib.mkOption {
       default = "";
@@ -21,7 +28,7 @@
     myHomeManager.kitty.enable = lib.mkDefault true;
 
     myHomeManager.gtk.enable = lib.mkDefault true;
-    
+
     qt.enable = true;
     qt.platformTheme = "gtk";
     qt.style.name = "adwaita-dark";
@@ -78,8 +85,7 @@
       upower
 
       kitty
-
+      nvim
     ];
-
   };
 }

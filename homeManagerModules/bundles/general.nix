@@ -8,7 +8,6 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.catppuccin.homeManagerModules.catppuccin
-    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   nixpkgs = {
@@ -20,7 +19,7 @@
 
   myHomeManager.zsh.enable = lib.mkDefault true;
   myHomeManager.lf.enable = lib.mkDefault true;
-  myHomeManager.nvim.enable = lib.mkDefault true;
+  # myHomeManager.nvim.enable = lib.mkDefault true;
 
   programs.home-manager.enable = true;
 
