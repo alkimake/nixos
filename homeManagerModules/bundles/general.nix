@@ -19,7 +19,6 @@
 
   myHomeManager.zsh.enable = lib.mkDefault true;
   myHomeManager.lf.enable = lib.mkDefault true;
-  # myHomeManager.nvim.enable = lib.mkDefault true;
 
   programs.home-manager.enable = true;
 
@@ -73,4 +72,3 @@
     ".zsh_history"
   ];
 }
-

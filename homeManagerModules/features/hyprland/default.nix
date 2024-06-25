@@ -25,7 +25,7 @@
   '';
 in {
   imports = [
-     ./monitors.nix
+    ./monitors.nix
   ];
 
   options = {
@@ -55,7 +55,7 @@ in {
           layout = "master";
         };
 
-	monitor =
+        monitor =
           map
           (
             m: let
@@ -294,4 +294,3 @@ in {
     ];
   };
 }
-

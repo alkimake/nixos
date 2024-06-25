@@ -23,6 +23,7 @@ in {
   };
 
   config = {
+    myHomeManager.wayland.enable = lib.mkDefault true;
     myHomeManager.rofi.enable = lib.mkDefault true;
     myHomeManager.alacritty.enable = lib.mkDefault true;
     myHomeManager.kitty.enable = lib.mkDefault true;

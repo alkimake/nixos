@@ -26,6 +26,10 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixvim.url = "github:alkimake/nixvim";
 
     firefox-addons = {

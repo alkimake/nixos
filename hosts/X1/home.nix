@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   myHomeManager.impermanence.directories = [
   ];
   myHomeManager = {
@@ -9,6 +12,7 @@
 
     firefox.enable = true;
     hyprland.enable = true;
+    wayland.enable = true;
 
     monitors = [
       {
@@ -20,10 +24,7 @@
         y = 0;
       }
     ];
-
-
   };
-
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -45,7 +46,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -102,5 +102,4 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-
 }

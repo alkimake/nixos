@@ -23,6 +23,8 @@
   # Enable sound with pipewire.
   sound.enable = true;
   security.rtkit.enable = true;
+  # TODO: this settings should come from myNixOS
+  security.pam.services.hyprlock = {};
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -49,4 +51,3 @@
   # battery
   services.upower.enable = true;
 }
-
