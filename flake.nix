@@ -10,7 +10,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     impermanence = {
       url = "github:nix-community/impermanence";
     };
@@ -26,13 +26,12 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     hyprland.url = "github:hyprwm/Hyprland";
-    nixvim.url = "github:elythh/nixvim";
+    nixvim.url = "github:alkimake/nixvim";
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = {...} @ inputs: let
@@ -49,9 +48,8 @@
       homeConfigurations = {
         "ake@X1" = mkHome "x86_64-linux" ./hosts/X1/home.nix;
       };
-     
-     homeManagerModules.default = ./homeManagerModules;
-     nixosModules.default = ./nixosModules;
 
+      homeManagerModules.default = ./homeManagerModules;
+      nixosModules.default = ./nixosModules;
     };
 }
