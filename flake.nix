@@ -26,10 +26,17 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     hyprland.url = "github:hyprwm/Hyprland";
+    # Idle inhibitor
+    matcha = {
+      url = "git+https://codeberg.org/QuincePie/matcha.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprlock = {
       url = "github:hyprwm/hyprlock";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # My custom neovim config
     nixvim.url = "github:alkimake/nixvim";
 
     firefox-addons = {
