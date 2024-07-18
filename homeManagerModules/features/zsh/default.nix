@@ -12,8 +12,10 @@
     # xclip -se c -t image/png -o > "$output"
     ${pkgs.wl-clipboard}/bin/wl-paste > "$output"
   '';
-
 in {
+  imports = [
+    ./starship.nix
+  ];
   home.file = {
   };
 
@@ -24,21 +26,16 @@ in {
       ls = "${pkgs.eza}/bin/eza --icons -a --group-directories-first";
       l = "${pkgs.eza}/bin/eza -lbF --git --group-directories-first --icons";
       ll = "${pkgs.eza}/bin/eza -lbGF --git --group-directories-first --icons";
-      llm =
-        "${pkgs.eza}/bin/eza -lbGd --git --sort=modified --group-directories-first --icons";
-      la =
-        "${pkgs.eza}/bin/eza -lbhHigmuSa --time-style=long-iso --git --color-scale --group-directories-first --icons";
-      lx =
-        "${pkgs.eza}/bin/eza -lbhHigmuSa@ --time-style=long-iso --git --color-scale --group-directories-first --icons";
-      lt =
-        "${pkgs.eza}/bin/eza --tree --level=2 --group-directories-first --icons";
+      llm = "${pkgs.eza}/bin/eza -lbGd --git --sort=modified --group-directories-first --icons";
+      la = "${pkgs.eza}/bin/eza -lbhHigmuSa --time-style=long-iso --git --color-scale --group-directories-first --icons";
+      lx = "${pkgs.eza}/bin/eza -lbhHigmuSa@ --time-style=long-iso --git --color-scale --group-directories-first --icons";
+      lt = "${pkgs.eza}/bin/eza --tree --level=2 --group-directories-first --icons";
       tree = "${pkgs.eza}/bin/eza --color=auto --tree";
       cal = "cal -m";
       grep = "grep --color=auto";
       q = "exit";
       ":q" = "exit";
       weather = "${pkgs.curl}/bin/curl -4 http://wttr.in/Seoul";
-
     };
   };
   programs.zsh.initExtra = ''
@@ -77,7 +74,6 @@ in {
     export DIRENV_LOG_FORMAT=""
   '';
 
-
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -105,9 +101,18 @@ in {
     ];
   };
 
+  # TODO: fix the coloring match with nix-colors
+  programs.starship.enable = true;
+  programs.starship.settings = {
+    add_newline = false;
+    # format = "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
+    preset = [
+      "jetpack"
+      "nerd-font-symbols"
+    ];
+  };
+
   home.packages = [
     pimg
-
   ];
 }
-
