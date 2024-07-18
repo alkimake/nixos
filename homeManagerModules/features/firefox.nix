@@ -1,8 +1,6 @@
 {
   pkgs,
   inputs,
-  config,
-  lib,
   ...
 }: {
   programs.firefox = {
@@ -11,7 +9,6 @@
       extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
         ublock-origin
         sponsorblock
-        darkreader
         vimium
         multi-account-containers
         proton-pass
