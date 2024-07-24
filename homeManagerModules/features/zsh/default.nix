@@ -15,6 +15,7 @@
 in {
   imports = [
     ./starship.nix
+    ./tmux.nix
   ];
   home.file = {
   };

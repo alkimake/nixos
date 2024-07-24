@@ -34,7 +34,6 @@
     libqalculate
     imagemagick
     killall
-    tmux
 
     fzf
     htop
