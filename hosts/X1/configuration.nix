@@ -53,6 +53,7 @@
   };
   system.name = "X1";
   system.nixos.label = "X1";
+  system.autoUpgrade.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
