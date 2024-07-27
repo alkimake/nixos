@@ -107,6 +107,13 @@ in {
     enable = true;
     enableZshIntegration = true;
   };
+  programs.dircolors = {
+    enable = true;
+    extraConfig = ''
+      TERM kitty
+    '';
+    enableZshIntegration = true;
+  };
 
   home.packages = [
     pimg
