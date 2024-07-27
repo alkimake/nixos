@@ -9,7 +9,9 @@
   nvim = nixvim'.nixvimExtend {
     config.colorschemes.catppuccin = lib.mkForce {
       enable = true;
-      flavour = "mocha";
+      settings = {
+        flavour = "mocha";
+      };
     };
   };
 in {
@@ -30,9 +32,11 @@ in {
 
     myHomeManager.gtk.enable = lib.mkDefault true;
 
-    qt.enable = true;
-    qt.platformTheme = "gtk";
-    qt.style.name = "adwaita-dark";
+    qt = {
+      enable = true;
+      platformTheme.name = "gtk";
+      style.name = "adwaita-dark";
+    };
 
     home.sessionVariables = {
       QT_STYLE_OVERRIDE = "adwaita-dark";
