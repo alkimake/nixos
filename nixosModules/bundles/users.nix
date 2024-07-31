@@ -70,4 +70,3 @@ in {
     ) (config.myNixOS.home-users);
   };
 }
-
