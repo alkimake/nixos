@@ -45,6 +45,10 @@
     bundles.general-desktop.enable = true;
     bundles.users.enable = true;
 
+    sddm.enable = true;
+
+    virtualisation.enable = true;
+
     sharedSettings.hyprland.enable = true;
     sharedSettings.catppuccin.enable = true;
     home-users = {

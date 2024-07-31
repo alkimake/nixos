@@ -4,7 +4,7 @@
   ...
 }: {
   myNixOS.sddm.enable = lib.mkDefault true;
-  myNixOS.virt.enable = lib.mkDefault true;
+  myNixOS.virtualisation.enable = lib.mkDefault true;
 
   time.timeZone = "Asia/Seoul";
   i18n.defaultLocale = "en_US.UTF-8";
