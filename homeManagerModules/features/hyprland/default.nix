@@ -168,10 +168,7 @@ in {
         };
 
         master = {
-          # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-          new_is_master = true;
-          # soon :)
-          # orientation = "center";
+          orientation = "center";
         };
 
         gestures = {
