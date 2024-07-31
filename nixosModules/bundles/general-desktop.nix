@@ -20,8 +20,6 @@
     LC_TIME = "ko_KR.UTF-8";
   };
 
-  # Enable sound with pipewire.
-  sound.enable = true;
   security.rtkit.enable = true;
   # TODO: this settings should come from myNixOS
   security.pam.services.hyprlock = {};
