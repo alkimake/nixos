@@ -43,11 +43,10 @@ in {
           ".local/share/keyrings"
           ".local/share/direnv"
 
-          "nixconf"
+          "nixos"
         ]
         ++ cfg.directories;
       allowOther = true;
     };
   };
 }
-

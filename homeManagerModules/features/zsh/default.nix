@@ -37,7 +37,7 @@ in {
       q = "exit";
       ":q" = "exit";
       weather = "${pkgs.curl}/bin/curl -4 http://wttr.in/Seoul";
-      nix-shell = "nix-shell --command ${pkgs.zsh}/bin/zsh";
+      # nix-shell = "nix-shell --command ${pkgs.zsh}/bin/zsh";
     };
   };
   programs.zsh.initExtra = ''
@@ -47,6 +47,18 @@ in {
     autoload -U colors && colors
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#${config.colorScheme.colors.base03}"
     bindkey '^ ' autosuggest-accept
+
+
+    proj() {
+      dir="$(cat ~/.local/share/direnv/allow/* | uniq | xargs dirname | ${pkgs.fzf}/bin/fzf --height 9)"
+      cd "$dir"
+    }
+    bindkey -s '\eOP' 'proj\n'
+
+    plf() {
+      proj
+      lf
+    }
 
   '';
 
