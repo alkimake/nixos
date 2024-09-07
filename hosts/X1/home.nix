@@ -13,6 +13,8 @@
     firefox.enable = true;
     hyprland.enable = true;
     wayland.enable = true;
+    git.enable = true;
+    gnupg.enable = true;
 
     monitors = [
       {
@@ -30,9 +32,12 @@
   # manage.
   home.username = "ake";
   home.homeDirectory = "/home/ake";
-
-  programs.git.userName = "Alkim Ake Gozen";
-  programs.git.userEmail = "alkimake@pm.me";
+  programs.git = {
+    signing = {
+      signByDefault = true;
+      key = "649D70BEBA8C8C0C";
+    };
+  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
