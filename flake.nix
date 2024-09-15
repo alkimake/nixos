@@ -6,6 +6,12 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +37,7 @@
     };
 
     # My custom neovim config
-    nixvim.url = "github:alkimake/nixvim";
+    # nixvim.url = "github:alkimake/nixvim";
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -47,14 +53,21 @@
     with myLib; {
       nixosConfigurations = {
         # ===================== NixOS Configurations ===================== #
-        X1 = mkSystem ./hosts/X1/configuration.nix;
+        X1 = mkNixosSystem ./hosts/X1/configuration.nix;
+      };
+      darwinConfigurations = {
+        # ===================== Darwin Configurations ===================== #
+        MBA = mkDarwinSystem ./hosts/MBA/configuration.nix;
       };
 
       homeConfigurations = {
         "ake@X1" = mkHome "x86_64-linux" ./hosts/X1/home.nix;
+        # =================== Darwin ======================= #
+        "ake@MBA" = mkHome "aarch64-darwin" ./hosts/MBA/home.nix;
       };
 
       homeManagerModules.default = ./homeManagerModules;
       nixosModules.default = ./nixosModules;
+      darwinModules.default = ./darwinModules;
     };
 }
