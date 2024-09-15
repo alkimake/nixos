@@ -24,17 +24,17 @@
 
 
   # Taking all module bundles in ./bundles and adding bundle.enables to them
-  # # bundles =
-  # #   myLib.extendModules
-  # #   (name: {
-  # #     extraOptions = {
-  # #       myDarwin.bundles.${name}.enable = lib.mkEnableOption "enable ${name} module bundle";
-  # #     };
+  bundles =
+    myLib.extendModules
+    (name: {
+      extraOptions = {
+        myDarwin.bundles.${name}.enable = lib.mkEnableOption "enable ${name} module bundle";
+      };
 
-  # #     configExtension = config: (lib.mkIf cfg.bundles.${name}.enable config);
-  # #   })
-  # #   (myLib.filesIn ./bundles)
-  #   {};
+      configExtension = config: (lib.mkIf cfg.bundles.${name}.enable config);
+    })
+    (myLib.filesIn ./bundles)
+  {};
 
 in {
   imports =
@@ -42,8 +42,8 @@ in {
       # inputs.catppuccin.homeManagerModules.catppuccin
       inputs.home-manager.darwinModules.home-manager
     ]
-    ++ features;
-    # ++ bundles;
+    ++ features
+    ++ bundles;
 
   options.myDarwin = {
     sharedSettings = {
