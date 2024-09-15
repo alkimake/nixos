@@ -7,12 +7,11 @@ in rec {
   # ================================================================ #
 
   # ======================= Package Helpers ======================== #
-
   pkgsFor = sys: inputs.nixpkgs.legacyPackages.${sys};
 
   # ========================== Buildables ========================== #
 
-  mkSystem = config:
+  mkNixosSystem = config:
     inputs.nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs outputs myLib;
@@ -20,6 +19,17 @@ in rec {
       modules = [
         config
         outputs.nixosModules.default
+      ];
+    };
+
+  mkDarwinSystem = config:
+    inputs.darwin.lib.darwinSystem {
+      specialArgs = {
+        inherit inputs outputs myLib;
+      };
+      modules = [
+        config
+        outputs.darwinModules.default
       ];
     };
 
