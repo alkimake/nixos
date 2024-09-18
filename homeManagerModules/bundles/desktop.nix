@@ -4,17 +4,7 @@
   inputs,
   lib,
   ...
-}: let
-  nixvim' = inputs.nixvim.packages."x86_64-linux".default;
-  nvim = nixvim'.nixvimExtend {
-    config.colorschemes.catppuccin = lib.mkForce {
-      enable = true;
-      settings = {
-        flavour = "mocha";
-      };
-    };
-  };
-in {
+}: {
   options = {
     myHomeManager.startupScript = lib.mkOption {
       default = "";
@@ -72,6 +62,7 @@ in {
     };
 
     home.packages = with pkgs; [
+      inputs.nixvim.packages.${pkgs.system}.default
       feh
       polkit
       polkit_gnome
@@ -90,7 +81,6 @@ in {
       upower
 
       kitty
-      nvim
     ];
   };
 }
