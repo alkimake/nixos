@@ -23,8 +23,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."luks-a8b20255-8ea4-40e4-8cd1-d57b2d8476e9".device = "/dev/disk/by-uuid/a8b20255-8ea4-40e4-8cd1-d57b2d8476e9";
-  networking.hostName = "X1"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -33,13 +31,6 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   myNixOS = {
     bundles.general-desktop.enable = true;
@@ -97,11 +88,23 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking = {
+    # Configure network proxy if necessary
+    # proxy.default = "http://user:password@proxy:port/";
+    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+    # Enable networking
+    networkmanager.enable = true;
+    hostName = "X1"; # Define your hostname.
+    firewall = {
+      # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+      # Open ports in the firewall.
+      # allowedTCPPorts = [];
+      # allowedUDPPorts = [];
+      # Or disable the firewall altogether.
+      # enable = false;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
