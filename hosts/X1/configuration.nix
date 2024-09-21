@@ -44,6 +44,7 @@
   myNixOS = {
     bundles.general-desktop.enable = true;
     bundles.users.enable = true;
+    services.syncthing.enable = true;
 
     sddm.enable = true;
     virtualisation.enable = true;

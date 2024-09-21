@@ -36,6 +36,20 @@
     (myLib.filesIn ./bundles)
     {};
 
+  # Taking all module bundles in ./bundles and adding bundle.enables to them
+  services =
+    myLib.extendModules
+    (name: {
+      extraOptions = {
+        myNixOS.services.${name}.enable = lib.mkEnableOption "enable ${name} module services";
+      };
+
+      configExtension = config: (lib.mkIf cfg.services.${name}.enable config);
+    })
+    (myLib.filesIn ./services)
+    {};
+
+
 in {
   imports =
     [
@@ -43,7 +57,8 @@ in {
       inputs.home-manager.nixosModules.home-manager
     ]
     ++ features
-    ++ bundles;
+    ++ bundles
+    ++ services;
 
   options.myNixOS = {
     sharedSettings = {
