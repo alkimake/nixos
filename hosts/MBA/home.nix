@@ -4,17 +4,18 @@
   inputs,
   ...
 }: {
-  myHomeManager.impermanence.directories = [
-  ];
-  myHomeManager = {
-    bundles.general.enable = true;
-    bundles.desktop.enable = false;
-
-    git.enable = true;
-    gnupg.enable = true;
-
-  };
-
+  # myHomeManager.impermanence.directories = [
+  # ];
+  # myHomeManager = {
+  #   bundles.general.enable = true;
+  #   bundles.desktop.enable = false;
+  #
+  #   git.enable = true;
+  #   gnupg.enable = true;
+  #   gtk.enable = false;
+  #
+  # };
+  #
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "ake";

@@ -3,7 +3,6 @@
   config,
   lib,
   inputs,
-  osConfig,
   ...
 }: let
   startScript = pkgs.writeShellScriptBin "start" ''

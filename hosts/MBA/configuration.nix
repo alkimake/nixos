@@ -30,16 +30,7 @@
   myDarwin = {
     bundles.nix.enable = true;
     users.enable = true;
-
-    # sharedSettings.catppuccin.enable = true;
-    # home-users = {
-    #   "ake" = {
-    #     userConfig = ./home.nix;
-    #   };
-    # };
-    # cachix.enable = true;
   };
-  # system.name = "MBA";
 
   programs.zsh.enable = true;
   system.stateVersion = 5;

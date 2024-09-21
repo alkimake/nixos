@@ -57,13 +57,15 @@
       };
       darwinConfigurations = {
         # ===================== Darwin Configurations ===================== #
-        MBA = mkDarwinSystem ./hosts/MBA/configuration.nix;
+        MBA = mkDarwinSystem {
+          sys = "aarch64-darwin";
+          config = ./hosts/MBA/configuration.nix;
+          homeConfig = ./hosts/MBA/home.nix;
+        };
       };
 
       homeConfigurations = {
         "ake@X1" = mkHome "x86_64-linux" ./hosts/X1/home.nix;
-        # =================== Darwin ======================= #
-        "ake@MBA" = mkHome "aarch64-darwin" ./hosts/MBA/home.nix;
       };
 
       homeManagerModules.default = ./homeManagerModules;

@@ -22,7 +22,7 @@ in rec {
       ];
     };
 
-  mkDarwinSystem = config:
+  mkDarwinSystem = { sys, config, homeConfig }:
     inputs.darwin.lib.darwinSystem {
       specialArgs = {
         inherit inputs outputs myLib;
@@ -30,6 +30,17 @@ in rec {
       modules = [
         config
         outputs.darwinModules.default
+        # inputs.home-manager.darwinModules.home-manager
+        #   {
+        #     nixpkgs = inputs.nixpkgs;
+        #     # `home-manager` config
+        #     home-manager.useGlobalPkgs = true;
+        #     home-manager.useUserPackages = true;
+        #     home-manager.users.ake = import homeConfig;
+        #   }
+        # FIXME: we want home manager modules included here as in nixosSystem
+        # outputs.homeManagerModules.default
+        # find the ones that is required and make the others false on default in here
       ];
     };
 
