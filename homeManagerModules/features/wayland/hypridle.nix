@@ -50,8 +50,6 @@
         {
           timeout = 660;
           on-timeout = "${systemctl} suspend";
-          # Check if plugged in before suspending
-          condition = "${lib.getExe' pkgs.acpi "acpi"} | grep -q 'Charging'";
         }
       ];
     };
