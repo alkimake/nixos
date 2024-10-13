@@ -30,14 +30,14 @@ in rec {
       modules = [
         config
         outputs.darwinModules.default
-        # inputs.home-manager.darwinModules.home-manager
-        #   {
-        #     nixpkgs = inputs.nixpkgs;
-        #     # `home-manager` config
-        #     home-manager.useGlobalPkgs = true;
-        #     home-manager.useUserPackages = true;
-        #     home-manager.users.ake = import homeConfig;
-        #   }
+        inputs.home-manager.darwinModules.home-manager
+          {
+            # nixpkgs = inputs.nixpkgs;
+            # `home-manager` config
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            # home-manager.users.ake = import homeConfig {inherit inputs outputs myLib;};
+          }
         # FIXME: we want home manager modules included here as in nixosSystem
         # outputs.homeManagerModules.default
         # find the ones that is required and make the others false on default in here

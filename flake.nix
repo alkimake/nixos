@@ -66,6 +66,7 @@
 
       homeConfigurations = {
         "ake@X1" = mkHome "x86_64-linux" ./hosts/X1/home.nix;
+        "ake@MBA" = mkHome "aarch64-darwin" ./hosts/MBA/home.nix;
       };
 
       homeManagerModules.default = ./homeManagerModules;

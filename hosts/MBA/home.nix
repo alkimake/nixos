@@ -1,19 +1,19 @@
 {
-  config,
-  pkgs,
   inputs,
   ...
-}: {
+}: let
+  pkgs = inputs.pkgs;
+in {
   # myHomeManager.impermanence.directories = [
   # ];
   # myHomeManager = {
   #   bundles.general.enable = true;
   #   bundles.desktop.enable = false;
-  #
+  
   #   git.enable = true;
   #   gnupg.enable = true;
   #   gtk.enable = false;
-  #
+  
   # };
   #
   # Home Manager needs a bit of information about you and the paths it should
@@ -53,7 +53,7 @@
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
     (pkgs.writeShellScriptBin "my-hello" ''
-      echo "Hello, ${config.home.username}!"
+      echo "Hello, ake!"
     '')
   ];
 
