@@ -1,4 +1,9 @@
-# Ake's Multi Host nix configurations
+
+> [!WARNING]  
+> This repository has been discontinued. New version can be found at [alkimake/nixconfig](https://github.com/alkimake/nixconfig)
+
+
+## Ake's Multi Host nix configurations
 
 ## TODO:
 
